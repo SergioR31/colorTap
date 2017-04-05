@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">
+</head>
+<body>
+	<div class="pantalla-inicio">
+		<h1>GAME<b>OVER</b></h1>
+		<p id="mensaje"></p>
+		<p>Puntos: <b id="puntos"></b></p>
+		<p>Nivel: <b id="nivel"></b></p>
+		<button onclick="navegar('juego.html')">OTRA VEZ</button>
+	</div>
+</body>
+
+<script>
+	function navegar(liga){
+		//Refirigir a la liga (juego.html)
+		window.location.assign(liga);
+	}
+
+	window.addEventListener('load', resultados, true);
+
+	function resultados(){
+		//obtener los resultados guardados
+		puntos = localStorage.getItem('puntos');
+		nivel = localStorage.getItem('nivel');
+
+		//imprimir nivel y puntos
+		document.getElementById('puntos').innerHTML = puntos;
+		document.getElementById('nivel').innerHTML = nivel;
+
+		//imprimir mensaje
+
+		mensaje = document.getElementById('mensaje');
+		if (puntos < 50) {
+			mensaje.innerHTML = "Pudes hacerlo mejor...";
+		}
+		if (puntos > 50 && puntos < 100) {
+			mensaje.innerHTML = "Nada mal..."
+		}
+		if (puntos > 100 && puntos < 200) {
+			mensaje.innerHTML = "Bien hecho..."
+		}
+	}
+</script>
+</html>

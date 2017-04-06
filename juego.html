@@ -60,6 +60,8 @@
 
 	//iniciar funciones
 	window.addEventListener('load',inicializar,true);
+	window.addEventListener('touchstart',toque,true);
+
 
 	function inicializar(){
 		//rotar colores de pantalla
@@ -76,9 +78,6 @@
 		nivel = document.querySelector('.nivel');
 		nivel.classList.add(colores[colorSmall]);
 	}
-
-
-	window.addEventListener('touchstart', toque, true);
 
 	function toque(){
 		//capturar el color de fondo
@@ -111,7 +110,6 @@
 		document.querySelector('.nivel').innerHTML = nivelActual;
 
 		tiempo = tiempo - 10;
-		rotacionColoresSmall();
 
 		document.querySelector('.nivel').classList.remove(colores[colorSmall]);
 		rotacionColoresSmall();
@@ -129,7 +127,7 @@
 		vidaPerdida.style.webkitTransform = "scale(1.5)";
 
 		//desaparecer
-		idaPerdida.style.opacity = "0";
+		vidaPerdida.style.opacity = "0";
 
 		//restamos el numero de vidas
 		vidas--;
